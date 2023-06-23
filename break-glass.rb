@@ -5,20 +5,20 @@
 class BreakGlass < Formula
   desc "break-glass is a simple tool to manage short lived AWS credentials"
   homepage "https://github.com/errm/break-glass"
-  version "0.1.3"
+  version "0.1.4"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/errm/break-glass/releases/download/v0.1.3/break-glass_Darwin_arm64.tar.gz"
-      sha256 "d7abbade1a8ec680556f8db69b80753dd21254837df99bc977222a26b6e6c8d8"
+    if Hardware::CPU.intel?
+      url "https://github.com/errm/break-glass/releases/download/v0.1.4/break-glass_Darwin_x86_64.tar.gz"
+      sha256 "acd1305878161178a6f4e90621cb75770464b49ac2b0e01d92cb3e0dc408a031"
 
       def install
         bin.install "break-glass"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/errm/break-glass/releases/download/v0.1.3/break-glass_Darwin_x86_64.tar.gz"
-      sha256 "98853be068f0059ed9d8e2471e45880eecd8adc7df03902eaf158d583600057e"
+    if Hardware::CPU.arm?
+      url "https://github.com/errm/break-glass/releases/download/v0.1.4/break-glass_Darwin_arm64.tar.gz"
+      sha256 "ca62b4cea3dadf615fdfcf08d4403c2e520bb7c61fcd979378839642771bed84"
 
       def install
         bin.install "break-glass"
@@ -27,17 +27,17 @@ class BreakGlass < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/errm/break-glass/releases/download/v0.1.3/break-glass_Linux_x86_64.tar.gz"
-      sha256 "a6af6fe34869b47868dac43525de6a3f0e87529726ffea27b93b6be2ca6c11f9"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/errm/break-glass/releases/download/v0.1.4/break-glass_Linux_arm64.tar.gz"
+      sha256 "0b89cadcb4c4d0218bf428d73a40cdbf01ae1668a75d2cbd20504b3c2ec65a5b"
 
       def install
         bin.install "break-glass"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/errm/break-glass/releases/download/v0.1.3/break-glass_Linux_arm64.tar.gz"
-      sha256 "7b5ebaf5b4169ae5495e78ffae689c4aa71f1c76135e0a9b4a8659f55bd642de"
+    if Hardware::CPU.intel?
+      url "https://github.com/errm/break-glass/releases/download/v0.1.4/break-glass_Linux_x86_64.tar.gz"
+      sha256 "17feb5a11cf98eb454e8933f908db582fdd27b6aba4eb0730e19c815bf64de79"
 
       def install
         bin.install "break-glass"
